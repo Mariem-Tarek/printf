@@ -14,7 +14,7 @@ int count(int n)
 	int c = 0;
 
 	if (n == 0)
-		return(1);
+		return (1);
 	if (n > 0)
 	{
 		while (n != 0)
