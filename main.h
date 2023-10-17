@@ -17,5 +17,6 @@ int print_binary(va_list p);
 int print_octal(va_list p);
 int print_un_i(int x);
 int count(int n);
+int rev_string(char *s);
 
 #endif
