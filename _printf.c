@@ -27,24 +27,20 @@ int _printf(const char *format, ...)
 			_putchar2(va_arg(arguments, int));
 			counter++; }
 		if (format[i + 1] == 's' && format[i] == '%')
-		{
-			counter += (_puts2(va_arg(arguments, char *)) - 1); }
+		{counter += (_puts2(va_arg(arguments, char *)) - 1); }
 		if (format[i + 1] == '%')
-		{
-			counter += _putchar2('%'); }
+		{counter += _putchar2('%'); }
 		if (format[i + 1] == 'b' && format[i] == '%')
-		{
-			counter += print_binary(arguments); }
+		{counter += print_binary(arguments); }
 		if (format[i + 1] == 'd' && format[i] == '%')
-		{
-			counter += print_d(va_arg(arguments, int)); }
+		{counter += print_d(va_arg(arguments, int)); }
 		if (format[i + 1] == 'i' && format[i] == '%')
-		{
-			counter += print_int(va_arg(arguments, int)); }
+		{counter += print_int(va_arg(arguments, int)); }
 		if (format[i + 1] == 'u' && format[i] == '%')
-		{
-			counter += print_un_i(va_arg(arguments, int)); }
-			i++; } }
+		{counter += print_un_i(va_arg(arguments, int)); }
+		if (format[i + 1] == 'r' && format[i] == '%')
+		{counter += rev_string(va_arg(arguments, char *)); }
+		i++; } }
 	va_end(arguments);
 	return (counter);
 }
