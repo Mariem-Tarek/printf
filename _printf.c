@@ -8,7 +8,7 @@
 */
 int _printf(const char *format, ...)
 {
-	int i, counter = 0, str_counter = 0;
+	int i, counter = 0;
 	va_list arguments;
 
 	if (!format || (format[0] == '%' && format[1] == '\0'))
@@ -19,45 +19,32 @@ int _printf(const char *format, ...)
 		if (format[i] != '%')
 		{
 			_putchar2(format[i]);
-			counter++;
-		}
-		else if (format[i + 1] == 'c' && format[i] == '%')
+			counter++; }
+		else
+		{
+		if (format[i + 1] == 'c' && format[i] == '%')
 		{
 			_putchar2(va_arg(arguments, int));
-			i++;
-		}
-		else if (format[i + 1] == 's' && format[i] == '%')
+			counter++; }
+		if (format[i + 1] == 's' && format[i] == '%')
 		{
-			str_counter = _puts2(va_arg(arguments, char *));
-			i++;
-			counter += (str_counter - 1);
-		}
-		else if (format[i + 1] == '%')
+			counter += (_puts2(va_arg(arguments, char *)) - 1); }
+		if (format[i + 1] == '%')
 		{
-			_putchar2('%');
-			counter++;
-		}
-		else if (format[i + 1] == 'b' && format[i] == '%')
+			counter += _putchar2('%'); }
+		if (format[i + 1] == 'b' && format[i] == '%')
 		{
-			print_binary(arguments);
-			i++;
-		}
-		else if (format[i + 1] == 'd' && format[i] == '%')
+			counter += print_binary(arguments); }
+		if (format[i + 1] == 'd' && format[i] == '%')
 		{
-			counter += print_d(va_arg(arguments, int));
-			i++;
-		}
-		else if (format[i + 1] == 'i' && format[i] == '%')
+			counter += print_d(va_arg(arguments, int)); }
+		if (format[i + 1] == 'i' && format[i] == '%')
 		{
-			counter += print_int(va_arg(arguments, int));
-			i++;
-		}
-		else if (format[i + 1] == 'u' && format[i] == '%')
+			counter += print_int(va_arg(arguments, int)); }
+		if (format[i + 1] == 'u' && format[i] == '%')
 		{
-			counter += print_un_i(va_arg(arguments, int));
-			i++;
-		}
-	}
+			counter += print_un_i(va_arg(arguments, int)); }
+			i++; } }
 	va_end(arguments);
 	return (counter);
 }
