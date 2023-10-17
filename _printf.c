@@ -19,6 +19,7 @@ int _printf(const char *format, ...)
 		if (format[i] != '%')
 		{
 			_putchar2(format[i]);
+			counter++;
 		}
 		else if (format[i + 1] == 'c' && format[i] == '%')
 		{
