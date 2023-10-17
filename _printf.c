@@ -19,6 +19,7 @@ int _printf(const char *format, ...)
 		if (format[i] != '%')
 		{
 			_putchar2(format[i]);
+			counter++;
 		}
 		else if (format[i + 1] == 'c' && format[i] == '%')
 		{
@@ -34,6 +35,7 @@ int _printf(const char *format, ...)
 		else if (format[i + 1] == '%')
 		{
 			_putchar2('%');
+			counter++;
 		}
 		else if (format[i + 1] == 'b' && format[i] == '%')
 		{
@@ -55,7 +57,6 @@ int _printf(const char *format, ...)
 			counter += print_un_i(va_arg(arguments, int));
 			i++;
 		}
-		counter++;
 	}
 	va_end(arguments);
 	return (counter);
