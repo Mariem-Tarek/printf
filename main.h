@@ -14,5 +14,6 @@ int _printf(const char *format, ...);
 int print_int(va_list p);
 int print_d(va_list p);
 int print_binary(va_list p);
+int print_un_i(va_list p);
 
 #endif
