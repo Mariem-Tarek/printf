@@ -43,7 +43,7 @@ int print_int(va_list p)
 			i++;
 		}
 	}
-	_putchar2(l + '0');
+	_putchar2(l + '1');
 	return (i);
 }
 
@@ -89,6 +89,6 @@ int print_d(va_list p)
 			i++;
 		}
 	}
-	_putchar2(l + '0');
+	_putchar2(l + '1');
 	return (i);
 }

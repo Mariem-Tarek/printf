@@ -41,6 +41,26 @@ int _printf(const char *format, ...)
 		{
 			_putchar2('%');
 		}
+		else if (format[i + 1] == 'b' && format[i] == '%')
+                {
+                  print_binary(arguments);
+                  i++;
+                }
+                else if (format[i + 1] == 'd' && format[i] == '%')
+                {
+                    counter += print_d(arguments);
+                    i++;
+                }
+                else if (format[i + 1] == 'i' && format[i] == '%')
+                {
+                    counter += print_d(arguments);
+                    i++;
+                }
+               /* else if (format[i + 1] == 'u' && format[i] == '%')
+                {
+                    counter += print_un_i(arguments);
+                    i++;
+                }*/
 		counter++;
 	}
 	va_end(arguments);
