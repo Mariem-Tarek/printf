@@ -48,19 +48,19 @@ int _printf(const char *format, ...)
                 }
                 else if (format[i + 1] == 'd' && format[i] == '%')
                 {
-                    counter += print_d(arguments);
+                   /* counter += */print_d(va_arg(arguments,int));
                     i++;
                 }
                 else if (format[i + 1] == 'i' && format[i] == '%')
                 {
-                    counter += print_d(arguments);
+                    counter += print_int(va_arg(arguments,int));
                     i++;
                 }
-               /* else if (format[i + 1] == 'u' && format[i] == '%')
+                else if (format[i + 1] == 'u' && format[i] == '%')
                 {
-                    counter += print_un_i(arguments);
+                    counter += print_un_i(va_arg(arguments,int));
                     i++;
-                }*/
+                }
 		counter++;
 	}
 	va_end(arguments);

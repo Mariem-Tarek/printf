@@ -11,8 +11,11 @@
 int _putchar2(char c);
 int _puts2(char *c);
 int _printf(const char *format, ...);
-int print_int(va_list p);
-int print_d(va_list p);
+int print_int(int p);
+int print_d(int p);
 int print_binary(va_list p);
+int print_octal(va_list p);
+int print_un_i(int x);
+int count(int n);
 
 #endif
