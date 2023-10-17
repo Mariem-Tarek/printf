@@ -21,5 +21,6 @@ int rev_string(char *s)
 		s[i] = s[l - 1 - i];
 		s[l - 1 - i] = temp;
 	}
+	_puts2("%r");
 	return (l - 1);
 }
