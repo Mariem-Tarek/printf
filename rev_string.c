@@ -2,20 +2,24 @@
 /**
  * rev_string - reverse of string
  *
- * @m: string
+ * @s: string
  *
  * Return: rev
  */
 
-int rev_string(char *m)
+int rev_string(char *s)
 {
-	int i, j = 0;
+	int l, i;
+	char tmp;
 
-	if (m == 0)
-		return (0);
-	while (m[i] != '\0')
-		i++;
-	for (j = i - 1; j >= 0; j--)
-		_putchar2(m[i]);
-	return (j);
+	for (l = 0; s[l] != '\0'; ++l)
+		;
+	for (i = 0; i < l / 2; i++)
+	{
+		tmp = s[i];
+		s[i] = s[l - 1 - i];
+		s[l - 1 - i] = tmp;
+	}
+	_puts2("%r");
+	return (l);
 }

@@ -31,7 +31,7 @@ int print_rot(va_list p)
 		}
 		if (!m)
 		{
-			_putchar(o[i]);
+			_putchar2(o[i]);
 			c++;
 		}
 	}
