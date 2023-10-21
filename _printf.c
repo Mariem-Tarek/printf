@@ -17,14 +17,12 @@ int _printf(const char *format, ...)
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] != '%')
-		{
-			_putchar2(format[i]);
+		{_putchar2(format[i]);
 			counter++; }
 		else
 		{
 		if (format[i + 1] == 'c' && format[i] == '%')
-		{
-			_putchar2(va_arg(arguments, int));
+		{_putchar2(va_arg(arguments, int));
 			counter++; }
 		if (format[i + 1] == 's' && format[i] == '%')
 		{counter += (_puts2(va_arg(arguments, char *)) - 1); }
@@ -40,6 +38,12 @@ int _printf(const char *format, ...)
 		{counter += print_un_i(va_arg(arguments, int)); }
 		if (format[i + 1] == 'r' && format[i] == '%')
 		{counter += rev_string(va_arg(arguments, char *)); }
+		if (format[i + 1] == 'o' && format[i] == '%')
+		{counter += print_octal(arguments); }
+		if (format[i + 1] == 'x' && format[i] == '%')
+		{counter += print_hex_small(arguments); }
+		if (format[i + 1] == 'X' && format[i] == '%')
+		{counter += print_hex_capital(arguments); }
 		i++; } }
 	va_end(arguments);
 	return (counter);

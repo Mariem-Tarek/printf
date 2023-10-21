@@ -22,6 +22,7 @@ int print_octal(va_list p)
 	}
 	c++;
 	arr = malloc(sizeof(int) * c);
+
 	for (i = 0; i < c; i++)
 	{
 		arr[i] = t % 8;
@@ -29,6 +30,7 @@ int print_octal(va_list p)
 	}
 	for (i = c - 1; i >= 0; i--)
 		_putchar2(arr[i] + '0');
+
 	free(arr);
 	return (c);
 }
